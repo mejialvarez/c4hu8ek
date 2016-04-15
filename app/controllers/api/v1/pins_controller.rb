@@ -1,4 +1,6 @@
 class Api::V1::PinsController < ApplicationController
+  before_action :authenticate_with_token!
+
   def index
     render json: Pin.all.order('created_at DESC')
   end
